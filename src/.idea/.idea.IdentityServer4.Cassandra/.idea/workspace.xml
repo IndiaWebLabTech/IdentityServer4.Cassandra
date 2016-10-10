@@ -34,8 +34,8 @@
       <file leaf-file-name="appveyor.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../../../appveyor.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="170">
+              <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -64,6 +64,7 @@
         <option value="$PROJECT_DIR$/../../IdentityServer4.Cassandra.Tests/Unit/ScopeStoreTests.cs" />
         <option value="$PROJECT_DIR$/../../IdentityServer4.Cassandra/project.json" />
         <option value="$PROJECT_DIR$/../../appveyor.yaml" />
+        <option value="$PROJECT_DIR$/../../../appveyor.yml" />
       </list>
     </option>
   </component>
@@ -191,12 +192,12 @@
       <workItem from="1476105568176" duration="8061000" />
       <workItem from="1476113727698" duration="1310000" />
       <workItem from="1476115111409" duration="3085000" />
-      <workItem from="1476118234532" duration="1295000" />
+      <workItem from="1476118234532" duration="1664000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18984000" />
+    <option name="totallyTimeSpent" value="19353000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -576,8 +577,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../../../appveyor.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="170">
+          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
           <folding />
         </state>
       </provider>
