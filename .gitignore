@@ -4,5 +4,8 @@ src/IdentityServer4.Cassandra.Tests/project.lock.json
 src/IdentityServer4.Cassandra.Tests/bin/
 src/IdentityServer4.Cassandra.Tests/obj/
 
-/src/IdentityServer4.Cassandra/bin/
+src/IdentityServer4.Cassandra/bin/
 src/IdentityServer4.Cassandra/obj/
+
+src/IdentityServer4.Cassandra.Tests/bin
+src/IdentityServer4.Cassandra.Tests/obj
