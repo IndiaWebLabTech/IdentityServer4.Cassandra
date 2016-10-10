@@ -1,0 +1,16 @@
+﻿{
+  "version": "1.0.0-*",
+  "authors": [ "Mark Tranter"],
+  "description": "Cassandra persistence layer for IdentityServer4",
+  "dependencies": {
+    "IdentityServer4":  "1.0.0-rc2",
+    "CassandraCSharpDriver":"3.1.0-beta1",
+    "Newtonsoft.Json":"9.0.2-beta1"
+  },
+
+  "frameworks": {
+    "netstandard1.4": {
+      "imports": "dnxcore50"
+    }
+  }
+}
