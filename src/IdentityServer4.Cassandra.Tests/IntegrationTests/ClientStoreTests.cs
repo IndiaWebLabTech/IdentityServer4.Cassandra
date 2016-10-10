@@ -1,20 +1,20 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Cassandra;
 using Cassandra.Mapping;
 using IdentityServer4.Models;
-using NUnit.Framework;
+using Xunit;
 
 namespace IdentityServer4.Cassandra.Tests.IntegrationTests
 {
-    [TestFixture(Category = "Integeration")]
-    public class ClientStoreTests
+    [Trait("Category","Integration")]
+    public class ClientStoreTests : IDisposable
     {
-        private ISession _session;
+        private readonly ISession _session;
         private static readonly string Keyspace =  typeof(ClientStoreTests).Name.ToLower();
 
-        [SetUp]
-        public void SetupSession()
+        public ClientStoreTests()
         {
 
             _session = Cluster.Builder().AddContactPoint("localhost").Build().Connect();
@@ -24,20 +24,20 @@ namespace IdentityServer4.Cassandra.Tests.IntegrationTests
         }
 
 
-        [TearDown]
-        public void Cleanup()
+        public void Dispose()
         {
             _session.Execute($"DROP KEYSPACE {Keyspace};");
         }
 
-        [Test]
+        [Fact]
         public async Task StoresThenRetrievesByKey()
         {
             var stores = new CassandraIdentityServerStores(_session);
             var clientsStore = await  stores.InitializeClientStore(new Client(){ClientId = "abc"});
             var client = await clientsStore.FindClientByIdAsync("abc");
-            Assert.IsNotNull(client);
-            Assert.AreEqual("abc", client.ClientId);
+
+            Assert.NotNull(client);
+            Assert.Equal("abc", client.ClientId);
         }
 
     }

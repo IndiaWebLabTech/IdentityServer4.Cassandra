@@ -1,19 +1,19 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Cassandra;
 using IdentityServer4.Models;
-using NUnit.Framework;
+using Xunit;
 
 namespace IdentityServer4.Cassandra.Tests.IntegrationTests
 {
-    [TestFixture(Category = "Integeration")]
-    public class ScopeStoreIntegrationTests
+    [Trait("Category","Integeration")]
+    public class ScopeStoreIntegrationTests : IDisposable
     {
-        private ISession _session;
+        private readonly ISession _session;
         private static readonly string Keyspace =  typeof(ScopeStoreIntegrationTests).Name.ToLower();
 
-        [SetUp]
-        public void SetupSession()
+        public ScopeStoreIntegrationTests()
         {
             _session = Cluster.Builder().AddContactPoint("localhost").Build().Connect();
             _session.Execute(
@@ -21,21 +21,20 @@ namespace IdentityServer4.Cassandra.Tests.IntegrationTests
             _session.ChangeKeyspace(Keyspace);
         }
 
-        [TearDown]
-        public void Cleanup()
+        public void Dispose()
         {
             _session.Execute($"DROP KEYSPACE {Keyspace};");
         }
 
 
-        [Test]
+        [Fact]
         public async Task StoresThenRetrievesScopesByName()
         {
             var stores = new CassandraIdentityServerStores(_session);
             var scopesStore = await  stores.InitializeScopeStoreAsync(new Scope(){Name = "123"});
             var scopes = await scopesStore.FindScopesAsync(new[] {"123"});
-            Assert.IsNotEmpty(scopes);
-            Assert.AreEqual("123", scopes.Single().Name);
+            Assert.NotEmpty(scopes);
+            Assert.Equal("123", scopes.Single().Name);
         }
 
     }
