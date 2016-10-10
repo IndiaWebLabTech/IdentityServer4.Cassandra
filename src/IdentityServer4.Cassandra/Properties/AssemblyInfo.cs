@@ -25,3 +25,4 @@ using System.Runtime.InteropServices;
 
 [assembly: Guid("6E562B64-5C2A-4692-A7DF-D0AAEC47B38C")]
 
+[assembly: InternalsVisibleTo("IdentityServer4.Cassandra.Tests")]

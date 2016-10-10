@@ -7,6 +7,12 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "IdentityServer4.Cassandra",
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "IdentityServer4.Cassandra.Tests", "IdentityServer4.Cassandra.Tests\IdentityServer4.Cassandra.Tests.xproj", "{72B78451-34C8-4E63-95EE-BEE89D676233}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{0F47EADA-B7BC-4919-9B84-7B83ED572A31}"
+ProjectSection(SolutionItems) = preProject
+	global.json = global.json
+	appveyor.yaml = appveyor.yaml
+EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +27,10 @@ Global
 		{72B78451-34C8-4E63-95EE-BEE89D676233}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72B78451-34C8-4E63-95EE-BEE89D676233}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72B78451-34C8-4E63-95EE-BEE89D676233}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F47EADA-B7BC-4919-9B84-7B83ED572A31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F47EADA-B7BC-4919-9B84-7B83ED572A31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F47EADA-B7BC-4919-9B84-7B83ED572A31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F47EADA-B7BC-4919-9B84-7B83ED572A31}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
