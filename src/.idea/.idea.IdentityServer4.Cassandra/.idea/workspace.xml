@@ -31,21 +31,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="appveyor.yml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="appveyor.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../../../appveyor.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
+            <state relative-caret-position="408">
+              <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../../.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+            <state relative-caret-position="170">
+              <caret line="10" column="39" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -74,8 +74,8 @@
         <option value="$PROJECT_DIR$/../../IdentityServer4.Cassandra.Tests/Unit/ScopeStoreTests.cs" />
         <option value="$PROJECT_DIR$/../../IdentityServer4.Cassandra/project.json" />
         <option value="$PROJECT_DIR$/../../appveyor.yaml" />
-        <option value="$PROJECT_DIR$/../../../appveyor.yml" />
         <option value="$PROJECT_DIR$/../../../.gitignore" />
+        <option value="$PROJECT_DIR$/../../../appveyor.yml" />
       </list>
     </option>
   </component>
@@ -203,12 +203,12 @@
       <workItem from="1476105568176" duration="8061000" />
       <workItem from="1476113727698" duration="1310000" />
       <workItem from="1476115111409" duration="3085000" />
-      <workItem from="1476118234532" duration="1835000" />
+      <workItem from="1476118234532" duration="2039000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19524000" />
+    <option name="totallyTimeSpent" value="19728000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -578,18 +578,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../../appveyor.yml">
+    <entry file="file://$PROJECT_DIR$/../../../.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
+        <state relative-caret-position="170">
+          <caret line="10" column="39" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../../.gitignore">
+    <entry file="file://$PROJECT_DIR$/../../../appveyor.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        <state relative-caret-position="408">
+          <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
           <folding />
         </state>
       </provider>
