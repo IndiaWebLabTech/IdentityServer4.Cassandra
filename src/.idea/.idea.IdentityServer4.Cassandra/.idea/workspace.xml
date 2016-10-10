@@ -34,8 +34,8 @@
       <file leaf-file-name="appveyor.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../../../appveyor.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+            <state relative-caret-position="323">
+              <caret line="19" column="7" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -203,12 +203,12 @@
       <workItem from="1476105568176" duration="8061000" />
       <workItem from="1476113727698" duration="1310000" />
       <workItem from="1476115111409" duration="3085000" />
-      <workItem from="1476118234532" duration="2039000" />
+      <workItem from="1476118234532" duration="2228000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19728000" />
+    <option name="totallyTimeSpent" value="19917000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -588,8 +588,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../../../appveyor.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+        <state relative-caret-position="323">
+          <caret line="19" column="7" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
           <folding />
         </state>
       </provider>
