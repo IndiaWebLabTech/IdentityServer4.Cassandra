@@ -5,7 +5,7 @@
       <sourceFolder url="file://$MODULE_DIR$/../../IdentityServer4.Cassandra" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../IdentityServer4.Cassandra.Tests" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../global.json" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../../appveyor.yaml" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../appveyor.yml" isTestSource="false" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

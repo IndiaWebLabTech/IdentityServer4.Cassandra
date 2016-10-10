@@ -31,11 +31,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="appveyor.yaml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../../appveyor.yaml">
+      <file leaf-file-name="appveyor.yml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../../appveyor.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="33" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
+            <state relative-caret-position="153">
+              <caret line="9" column="52" selection-start-line="9" selection-start-column="52" selection-end-line="9" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -191,12 +191,12 @@
       <workItem from="1476105568176" duration="8061000" />
       <workItem from="1476113727698" duration="1310000" />
       <workItem from="1476115111409" duration="3085000" />
-      <workItem from="1476118234532" duration="442000" />
+      <workItem from="1476118234532" duration="1079000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18131000" />
+    <option name="totallyTimeSpent" value="18768000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -573,10 +573,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../appveyor.yaml">
+    <entry file="file://$PROJECT_DIR$/../../appveyor.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="33" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
+        <state relative-caret-position="153">
+          <caret line="9" column="52" selection-start-line="9" selection-start-column="52" selection-end-line="9" selection-end-column="52" />
           <folding />
         </state>
       </provider>

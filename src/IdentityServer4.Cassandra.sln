@@ -10,7 +10,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{0F47EADA-B7BC-4919-9B84-7B83ED572A31}"
 ProjectSection(SolutionItems) = preProject
 	global.json = global.json
-	appveyor.yaml = appveyor.yaml
+	appveyor.yml = appveyor.yml
 EndProjectSection
 EndProject
 Global
