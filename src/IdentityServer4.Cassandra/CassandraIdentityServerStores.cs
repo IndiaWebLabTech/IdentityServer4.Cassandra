@@ -5,32 +5,26 @@ using IdentityServer4.Stores;
 
 namespace IdentityServer4.Cassandra
 {
-    public class CassandraIdentityServerStores
+    public static class CassandraIdentityServerStores
     {
-        private readonly ISession _session;
 
-        public CassandraIdentityServerStores(ISession session)
+        public static async Task<IScopeStore> InitializeScopeStoreAsync(ISession session, params Scope[] scopes)
         {
-            _session = session;
-        }
-
-        public async Task<IScopeStore> InitializeScopeStoreAsync(params Scope[] scopes)
-        {
-            var retval = new CassandraScopeStore(_session);
+            var retval = new CassandraScopeStore(session);
             await retval.InitializeAsync(scopes);
             return retval;
         }
 
-        public async Task<IClientStore> InitializeClientStore(params Client[] clients)
+        public static async Task<IClientStore> InitializeClientStore(ISession session, params Client[] clients)
         {
-            var retval = new CassandraClientStore(_session);
+            var retval = new CassandraClientStore(session);
             await retval.InitializeAsync(clients);
             return retval;
         }
 
-        public async Task<IPersistedGrantStore> InitializeGrantsStoreAsync()
+        public static async Task<IPersistedGrantStore> InitializeGrantsStoreAsync(ISession session)
         {
-            var retval = new CassandraPersistedGrantStore(_session);
+            var retval = new CassandraPersistedGrantStore(session);
             await retval.InitializeAsync();
             return retval;
         }
