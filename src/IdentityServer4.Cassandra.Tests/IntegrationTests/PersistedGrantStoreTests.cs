@@ -32,8 +32,7 @@ namespace IdentityServer4.Cassandra.Tests.IntegrationTests
         [Fact]
         public async Task StoresThenRetrievesByKey()
         {
-            var stores = new CassandraIdentityServerStores(_session);
-            var grantsStore = await  stores.InitializeGrantsStoreAsync();
+            var grantsStore = await  CassandraIdentityServerStores.InitializeGrantsStoreAsync(_session);
             await grantsStore.StoreAsync(new PersistedGrant() {Key = "123"});
             var storedGrant = await grantsStore.GetAsync("123");
             Assert.NotNull(storedGrant);
@@ -43,8 +42,7 @@ namespace IdentityServer4.Cassandra.Tests.IntegrationTests
         [Fact]
         public async Task StoresThenDeletesByKey()
         {
-            var stores = new CassandraIdentityServerStores(_session);
-            var grantsStore = await  stores.InitializeGrantsStoreAsync();
+            var grantsStore = await  CassandraIdentityServerStores.InitializeGrantsStoreAsync(_session);
             await grantsStore.StoreAsync(new PersistedGrant() {Key = "999"});
             var storedGrant = await grantsStore.GetAsync("999");
             Assert.NotNull(storedGrant);
@@ -54,8 +52,7 @@ namespace IdentityServer4.Cassandra.Tests.IntegrationTests
         [Fact]
         public async Task StoresThenFetchesBySubject()
         {
-            var stores = new CassandraIdentityServerStores(_session);
-            var grantsStore = await  stores.InitializeGrantsStoreAsync();
+            var grantsStore = await  CassandraIdentityServerStores.InitializeGrantsStoreAsync(_session);
             await grantsStore.StoreAsync(new PersistedGrant() {Key = "321", SubjectId = "Some App"});
             await grantsStore.StoreAsync(new PersistedGrant() {Key = "456", SubjectId = "Some App"});
             await grantsStore.StoreAsync(new PersistedGrant() {Key = "789", SubjectId = "Some Other App"});
@@ -66,8 +63,7 @@ namespace IdentityServer4.Cassandra.Tests.IntegrationTests
         [Fact]
         public async Task StoresThenRemovesBySubjectAndClient()
         {
-            var stores = new CassandraIdentityServerStores(_session);
-            var grantsStore = await  stores.InitializeGrantsStoreAsync();
+            var grantsStore = await  CassandraIdentityServerStores.InitializeGrantsStoreAsync(_session);
             await grantsStore.StoreAsync(new PersistedGrant() {Key = "666", SubjectId = "Some App", ClientId = "mt"});
             await grantsStore.StoreAsync(new PersistedGrant() {Key = "111", SubjectId = "Some App", ClientId = "jp"});
             await grantsStore.RemoveAllAsync("Some App", "mt");
@@ -80,8 +76,7 @@ namespace IdentityServer4.Cassandra.Tests.IntegrationTests
         [Fact]
         public async Task StoresThenRemovesBySubjectAndClientAndType()
         {
-            var stores = new CassandraIdentityServerStores(_session);
-            var grantsStore = await  stores.InitializeGrantsStoreAsync();
+            var grantsStore = await  CassandraIdentityServerStores.InitializeGrantsStoreAsync(_session);
             await grantsStore.StoreAsync(new PersistedGrant() {Key = "666", SubjectId = "Some App", ClientId = "mt", Type = "User"});
             await grantsStore.StoreAsync(new PersistedGrant() {Key = "111", SubjectId = "Some App", ClientId = "mt", Type = "Admin"});
             await grantsStore.StoreAsync(new PersistedGrant() {Key = "456", SubjectId = "Some App", ClientId = "jp", Type = "User"});

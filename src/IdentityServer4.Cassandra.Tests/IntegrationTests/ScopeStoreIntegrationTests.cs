@@ -30,8 +30,7 @@ namespace IdentityServer4.Cassandra.Tests.IntegrationTests
         [Fact]
         public async Task StoresThenRetrievesScopesByName()
         {
-            var stores = new CassandraIdentityServerStores(_session);
-            var scopesStore = await  stores.InitializeScopeStoreAsync(new Scope(){Name = "123"});
+            var scopesStore = await  CassandraIdentityServerStores.InitializeScopeStoreAsync(_session, new Scope(){Name = "123"});
             var scopes = await scopesStore.FindScopesAsync(new[] {"123"});
             Assert.NotEmpty(scopes);
             Assert.Equal("123", scopes.Single().Name);

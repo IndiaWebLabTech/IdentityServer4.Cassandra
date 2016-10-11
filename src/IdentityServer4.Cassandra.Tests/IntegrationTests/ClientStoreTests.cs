@@ -32,8 +32,7 @@ namespace IdentityServer4.Cassandra.Tests.IntegrationTests
         [Fact]
         public async Task StoresThenRetrievesByKey()
         {
-            var stores = new CassandraIdentityServerStores(_session);
-            var clientsStore = await  stores.InitializeClientStore(new Client(){ClientId = "abc"});
+            var clientsStore = await  CassandraIdentityServerStores.InitializeClientStore(_session, new Client(){ClientId = "abc"});
             var client = await clientsStore.FindClientByIdAsync("abc");
 
             Assert.NotNull(client);
