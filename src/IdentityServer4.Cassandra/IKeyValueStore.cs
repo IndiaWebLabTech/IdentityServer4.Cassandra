@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace IdentityServer4.Cassandra
 {
-    interface IKeyValueStore<TKey,TValue> where TValue : class
+    public interface IKeyValueStore<TKey,TValue> where TValue : class
     {
         Task<TValue> GetAsync(TKey id);
         Task<IEnumerable<TValue>> ListAsync();
