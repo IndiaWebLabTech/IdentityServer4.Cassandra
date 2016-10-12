@@ -13,6 +13,8 @@ build_script:
 - dotnet build "src\IdentityServer4.Cassandra" -c %CONFIGURATION% --no-dependencies --version-suffix %LABEL%
 after_build:
 - dotnet pack "src\IdentityServer4.Cassandra" -c %CONFIGURATION% --no-build --version-suffix %LABEL% -o artifacts
+test_script:
+  - dotnet test "src\IdentityServer4.Cassandra.Tests" -c %CONFIGURATION%
 artifacts:
 - path: artifacts\**\*.*
 deploy:
