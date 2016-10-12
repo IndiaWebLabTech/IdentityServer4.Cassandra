@@ -9,26 +9,8 @@ using Xunit;
 namespace IdentityServer4.Cassandra.Tests.IntegrationTests
 {
     [Trait("Category","Integration")]
-    public class ClientStoreTests : IDisposable
+    public class ClientStoreTests : CassandraIntegrationTestBase
     {
-        private readonly ISession _session;
-        private static readonly string Keyspace =  typeof(ClientStoreTests).Name.ToLower();
-
-        public ClientStoreTests()
-        {
-
-            _session = Cluster.Builder().AddContactPoint("localhost").Build().Connect();
-            _session.Execute(
-                $"CREATE KEYSPACE IF NOT EXISTS {Keyspace} WITH REPLICATION = {{ 'class' : 'SimpleStrategy', 'replication_factor' : 1 }};");
-            _session.ChangeKeyspace(Keyspace);
-        }
-
-
-        public void Dispose()
-        {
-            _session.Execute($"DROP KEYSPACE {Keyspace};");
-        }
-
         [Fact]
         public async Task StoresThenRetrievesByKey()
         {

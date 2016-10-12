@@ -7,7 +7,7 @@ namespace IdentityServer4.Cassandra
 {
     public static class CassandraIdentityServerStores
     {
-
+        
         public static async Task<IScopeStore> InitializeScopeStoreAsync(ISession session, params Scope[] scopes)
         {
             var retval = new CassandraScopeStore(session);
