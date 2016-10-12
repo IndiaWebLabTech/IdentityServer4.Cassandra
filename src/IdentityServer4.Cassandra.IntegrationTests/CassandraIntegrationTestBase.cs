@@ -6,7 +6,7 @@ using Cassandra.Mapping;
 using IdentityServer4.Models;
 using Xunit;
 
-namespace IdentityServer4.Cassandra.Tests.IntegrationTests
+namespace IdentityServer4.Cassandra.IntegrationTests
 {
     [Trait("Category","Integration")]
     public class CassandraIntegrationTestBase : IDisposable

@@ -6,7 +6,7 @@ using Cassandra.Mapping;
 using IdentityServer4.Models;
 using Xunit;
 
-namespace IdentityServer4.Cassandra.Tests.IntegrationTests
+namespace IdentityServer4.Cassandra.IntegrationTests
 {
     [Trait("Category","Integration")]
     public class KeyValueStoreTests: CassandraIntegrationTestBase
@@ -14,10 +14,10 @@ namespace IdentityServer4.Cassandra.Tests.IntegrationTests
         [Fact]
         public async Task StoresThenRetrievesByKey()
         {
-            var kvStore = CassandraJsonKvStore<String,TestKvDto>.Initialize(_session, "kv_table1");
+            var kvStore = CassandraKeyValueStore<String,TestKvDto>.Initialize(_session, "kv_table1");
             var expected= new TestKvDto(){ Id="abc", Name="test data"};
-            await kvStore.Save("abc", expected);
-            var actual =await kvStore.Get("abc");
+            await kvStore.SaveAsync("abc", expected);
+            var actual =await kvStore.GetAsync("abc");
 
             Assert.NotNull(actual);
             Assert.Equal(expected.Name,actual.Name);
@@ -27,14 +27,14 @@ namespace IdentityServer4.Cassandra.Tests.IntegrationTests
         [Fact]
         public async Task StoresThenRetrievesAll()
         {
-            var kvStore = CassandraJsonKvStore<String,TestKvDto>.Initialize(_session, "kv_table3");
+            var kvStore = CassandraKeyValueStore<String,TestKvDto>.Initialize(_session, "kv_table3");
             var expected1= new TestKvDto(){ Id="abc", Name="test data"};
             var expected2= new TestKvDto(){ Id="def", Name="test data"};
             var expected3= new TestKvDto(){ Id="ghi", Name="test data"};
-            await kvStore.Save(expected1.Id, expected1);
-            await kvStore.Save(expected2.Id, expected2);
-            await kvStore.Save(expected3.Id, expected3);
-            var actuals = await kvStore.List();
+            await kvStore.SaveAsync(expected1.Id, expected1);
+            await kvStore.SaveAsync(expected2.Id, expected2);
+            await kvStore.SaveAsync(expected3.Id, expected3);
+            var actuals = await kvStore.ListAsync();
             actuals = actuals.ToArray();
             Assert.NotNull(actuals);
             Assert.Equal(3, actuals.Count());
