@@ -35,8 +35,16 @@
         <entry file="file://$PROJECT_DIR$/../../../appveyor.yml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="272">
-              <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
-              <folding />
+              <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+              <folding>
+                <marker date="1476352778335" expanded="true" signature="9:22" ph="'" />
+                <marker date="1476352778335" expanded="true" signature="40:45" ph="D" />
+                <marker date="1476352778335" expanded="true" signature="56:63" ph="A" />
+                <marker date="1476352778335" expanded="true" signature="162:227" ph="$" />
+                <marker date="1476352778335" expanded="true" signature="244:284" ph="a" />
+                <marker date="1476352778335" expanded="true" signature="301:407" ph="d" />
+                <marker date="1476352778335" expanded="true" signature="423:534" ph="d" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -44,19 +52,13 @@
       <file leaf-file-name="CassandraClientStore.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../IdentityServer4.Cassandra/CassandraClientStore.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+            <state relative-caret-position="221">
+              <caret line="13" column="38" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
               <folding>
-                <marker date="1476112121029" expanded="true" signature="6:165" ph="..." />
-                <marker date="1476112121029" expanded="true" signature="202:2255" ph="{...}" />
-                <marker date="1476112121029" expanded="true" signature="257:2253" ph="{...}" />
-                <marker date="1476112121029" expanded="true" signature="511:687" ph="{...}" />
-                <marker date="1476112121029" expanded="true" signature="787:839" ph="{...}" />
-                <marker date="1476112121029" expanded="true" signature="909:1390" ph="{...}" />
-                <marker date="1476112121029" expanded="true" signature="1462:1663" ph="{...}" />
-                <marker date="1476112121029" expanded="true" signature="1688:2247" ph="{...}" />
-                <marker date="1476112121029" expanded="true" signature="1831:1943" ph="{...}" />
-                <marker date="1476112121029" expanded="true" signature="2006:2237" ph="{...}" />
+                <marker date="1476352778339" expanded="true" signature="6:13" ph="..." />
+                <marker date="1476352778339" expanded="true" signature="1031:1041" ph="{...}" />
+                <marker date="1476352778339" expanded="true" signature="1031:1047" ph="{...}" />
+                <marker date="1476352778339" expanded="true" signature="1031:1049" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -95,43 +97,13 @@
       <file leaf-file-name="CassandraScopeStore.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../IdentityServer4.Cassandra/CassandraScopeStore.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="446">
-              <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+            <state relative-caret-position="21">
+              <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
               <folding>
-                <marker date="1476110690883" expanded="true" signature="6:226" ph="..." />
-                <marker date="1476110690883" expanded="true" signature="263:3027" ph="{...}" />
-                <marker date="1476110690883" expanded="true" signature="318:3025" ph="{...}" />
-                <marker date="1476110690883" expanded="true" signature="554:725" ph="{...}" />
-                <marker date="1476110690883" expanded="true" signature="824:876" ph="{...}" />
-                <marker date="1476110690883" expanded="true" signature="971:1393" ph="{...}" />
-                <marker date="1476110690883" expanded="true" signature="1479:1747" ph="{...}" />
-                <marker date="1476110690883" expanded="true" signature="1815:2304" ph="{...}" />
-                <marker date="1476110690883" expanded="true" signature="2328:3019" ph="{...}" />
-                <marker date="1476110690883" expanded="true" signature="2368:2396" ph="{...}" />
-                <marker date="1476110690883" expanded="true" signature="2451:2537" ph="{...}" />
-                <marker date="1476110690883" expanded="true" signature="2596:2766" ph="{...}" />
-                <marker date="1476110690883" expanded="true" signature="2802:2918" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PersistedGrantStoreTests.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../IdentityServer4.Cassandra.Tests/IntegrationTests/PersistedGrantStoreTests.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-102">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1476181675822" expanded="true" signature="6:147" ph="..." />
-                <marker date="1476181675822" expanded="true" signature="207:4041" ph="{...}" />
-                <marker date="1476181675822" expanded="true" signature="303:4039" ph="{...}" />
-                <marker date="1476181675822" expanded="true" signature="496:824" ph="{...}" />
-                <marker date="1476181675822" expanded="true" signature="856:936" ph="{...}" />
-                <marker date="1476181675822" expanded="true" signature="1005:1364" ph="{...}" />
-                <marker date="1476181675822" expanded="true" signature="1431:1790" ph="{...}" />
-                <marker date="1476181675822" expanded="true" signature="1861:2423" ph="{...}" />
-                <marker date="1476181675822" expanded="true" signature="2503:3170" ph="{...}" />
-                <marker date="1476181675822" expanded="true" signature="3257:4033" ph="{...}" />
+                <marker date="1476352810015" expanded="true" signature="6:226" ph="..." />
+                <marker date="1476352810015" expanded="true" signature="263:1620" ph="{...}" />
+                <marker date="1476352810015" expanded="true" signature="1602:1612" ph="{...}" />
+                <marker date="1476352810015" expanded="true" signature="1602:1618" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -140,15 +112,13 @@
       <file leaf-file-name="CassandraIdentityServerStores.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../IdentityServer4.Cassandra/CassandraIdentityServerStores.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
+            <state relative-caret-position="238">
+              <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
               <folding>
-                <marker date="1476181603390" expanded="true" signature="6:106" ph="..." />
-                <marker date="1476181603390" expanded="true" signature="143:1014" ph="{...}" />
-                <marker date="1476181603390" expanded="true" signature="199:1012" ph="{...}" />
-                <marker date="1476181603390" expanded="true" signature="319:475" ph="{...}" />
-                <marker date="1476181603390" expanded="true" signature="588:746" ph="{...}" />
-                <marker date="1476181603390" expanded="true" signature="847:1006" ph="{...}" />
+                <marker date="1476352778339" expanded="true" signature="6:13" ph="..." />
+                <marker date="1476352778339" expanded="true" signature="1340:1351" ph="{...}" />
+                <marker date="1476352778339" expanded="true" signature="1340:1357" ph="{...}" />
+                <marker date="1476352778339" expanded="true" signature="1340:1359" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -354,7 +324,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32478000" />
+    <option name="totallyTimeSpent" value="33077000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -649,14 +619,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="387">
           <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding>
-            <marker date="1476181651350" expanded="true" signature="6:147" ph="..." />
-            <marker date="1476181651350" expanded="true" signature="207:1302" ph="{...}" />
-            <marker date="1476181651350" expanded="true" signature="295:1300" ph="{...}" />
-            <marker date="1476181651350" expanded="true" signature="472:800" ph="{...}" />
-            <marker date="1476181651350" expanded="true" signature="832:912" ph="{...}" />
-            <marker date="1476181651350" expanded="true" signature="981:1293" ph="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -664,14 +627,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="17" column="85" selection-start-line="17" selection-start-column="85" selection-end-line="17" selection-end-column="85" />
-          <folding>
-            <marker date="1476181686701" expanded="true" signature="6:122" ph="..." />
-            <marker date="1476181686701" expanded="true" signature="182:1320" ph="{...}" />
-            <marker date="1476181686701" expanded="true" signature="281:1318" ph="{...}" />
-            <marker date="1476181686701" expanded="true" signature="478:805" ph="{...}" />
-            <marker date="1476181686701" expanded="true" signature="836:916" ph="{...}" />
-            <marker date="1476181686701" expanded="true" signature="993:1311" ph="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -695,18 +651,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-102">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1476181675822" expanded="true" signature="6:147" ph="..." />
-            <marker date="1476181675822" expanded="true" signature="207:4041" ph="{...}" />
-            <marker date="1476181675822" expanded="true" signature="303:4039" ph="{...}" />
-            <marker date="1476181675822" expanded="true" signature="496:824" ph="{...}" />
-            <marker date="1476181675822" expanded="true" signature="856:936" ph="{...}" />
-            <marker date="1476181675822" expanded="true" signature="1005:1364" ph="{...}" />
-            <marker date="1476181675822" expanded="true" signature="1431:1790" ph="{...}" />
-            <marker date="1476181675822" expanded="true" signature="1861:2423" ph="{...}" />
-            <marker date="1476181675822" expanded="true" signature="2503:3170" ph="{...}" />
-            <marker date="1476181675822" expanded="true" signature="3257:4033" ph="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -729,63 +674,54 @@
     <entry file="file://$PROJECT_DIR$/../../../appveyor.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
-          <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
-          <folding />
+          <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+          <folding>
+            <marker date="1476352778335" expanded="true" signature="9:22" ph="'" />
+            <marker date="1476352778335" expanded="true" signature="40:45" ph="D" />
+            <marker date="1476352778335" expanded="true" signature="56:63" ph="A" />
+            <marker date="1476352778335" expanded="true" signature="162:227" ph="$" />
+            <marker date="1476352778335" expanded="true" signature="244:284" ph="a" />
+            <marker date="1476352778335" expanded="true" signature="301:407" ph="d" />
+            <marker date="1476352778335" expanded="true" signature="423:534" ph="d" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../../IdentityServer4.Cassandra/CassandraClientStore.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+        <state relative-caret-position="221">
+          <caret line="13" column="38" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
           <folding>
-            <marker date="1476112121029" expanded="true" signature="6:165" ph="..." />
-            <marker date="1476112121029" expanded="true" signature="202:2255" ph="{...}" />
-            <marker date="1476112121029" expanded="true" signature="257:2253" ph="{...}" />
-            <marker date="1476112121029" expanded="true" signature="511:687" ph="{...}" />
-            <marker date="1476112121029" expanded="true" signature="787:839" ph="{...}" />
-            <marker date="1476112121029" expanded="true" signature="909:1390" ph="{...}" />
-            <marker date="1476112121029" expanded="true" signature="1462:1663" ph="{...}" />
-            <marker date="1476112121029" expanded="true" signature="1688:2247" ph="{...}" />
-            <marker date="1476112121029" expanded="true" signature="1831:1943" ph="{...}" />
-            <marker date="1476112121029" expanded="true" signature="2006:2237" ph="{...}" />
+            <marker date="1476352778339" expanded="true" signature="6:13" ph="..." />
+            <marker date="1476352778339" expanded="true" signature="1031:1041" ph="{...}" />
+            <marker date="1476352778339" expanded="true" signature="1031:1047" ph="{...}" />
+            <marker date="1476352778339" expanded="true" signature="1031:1049" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../../IdentityServer4.Cassandra/CassandraIdentityServerStores.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
+        <state relative-caret-position="238">
+          <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
           <folding>
-            <marker date="1476181603390" expanded="true" signature="6:106" ph="..." />
-            <marker date="1476181603390" expanded="true" signature="143:1014" ph="{...}" />
-            <marker date="1476181603390" expanded="true" signature="199:1012" ph="{...}" />
-            <marker date="1476181603390" expanded="true" signature="319:475" ph="{...}" />
-            <marker date="1476181603390" expanded="true" signature="588:746" ph="{...}" />
-            <marker date="1476181603390" expanded="true" signature="847:1006" ph="{...}" />
+            <marker date="1476352778339" expanded="true" signature="6:13" ph="..." />
+            <marker date="1476352778339" expanded="true" signature="1340:1351" ph="{...}" />
+            <marker date="1476352778339" expanded="true" signature="1340:1357" ph="{...}" />
+            <marker date="1476352778339" expanded="true" signature="1340:1359" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../../IdentityServer4.Cassandra/CassandraScopeStore.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="446">
-          <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+        <state relative-caret-position="21">
+          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
           <folding>
-            <marker date="1476110690883" expanded="true" signature="6:226" ph="..." />
-            <marker date="1476110690883" expanded="true" signature="263:3027" ph="{...}" />
-            <marker date="1476110690883" expanded="true" signature="318:3025" ph="{...}" />
-            <marker date="1476110690883" expanded="true" signature="554:725" ph="{...}" />
-            <marker date="1476110690883" expanded="true" signature="824:876" ph="{...}" />
-            <marker date="1476110690883" expanded="true" signature="971:1393" ph="{...}" />
-            <marker date="1476110690883" expanded="true" signature="1479:1747" ph="{...}" />
-            <marker date="1476110690883" expanded="true" signature="1815:2304" ph="{...}" />
-            <marker date="1476110690883" expanded="true" signature="2328:3019" ph="{...}" />
-            <marker date="1476110690883" expanded="true" signature="2368:2396" ph="{...}" />
-            <marker date="1476110690883" expanded="true" signature="2451:2537" ph="{...}" />
-            <marker date="1476110690883" expanded="true" signature="2596:2766" ph="{...}" />
-            <marker date="1476110690883" expanded="true" signature="2802:2918" ph="{...}" />
+            <marker date="1476352810015" expanded="true" signature="6:226" ph="..." />
+            <marker date="1476352810015" expanded="true" signature="263:1620" ph="{...}" />
+            <marker date="1476352810015" expanded="true" signature="1602:1612" ph="{...}" />
+            <marker date="1476352810015" expanded="true" signature="1602:1618" ph="{...}" />
           </folding>
         </state>
       </provider>
