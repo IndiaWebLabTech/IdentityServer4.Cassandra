@@ -2,3 +2,5 @@
 obj/
 
 project.lock.json
+
+.idea/
