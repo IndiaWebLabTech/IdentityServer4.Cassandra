@@ -4,3 +4,5 @@ obj/
 project.lock.json
 
 .idea/
+
+src/.idea/.idea.IdentityServer4.Cassandra/.idea/workspace.xml
