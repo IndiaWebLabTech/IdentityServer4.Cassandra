@@ -17,7 +17,7 @@ namespace IdentityServer4.Cassandra
                 .TableName(table)
                 .PartitionKey(s => s.Id));
 
-            session.Execute($"CREATE TABLE {table}(id text, data text, PRIMARY KEY (id));");
+            session.Execute($"CREATE TABLE IF NOT EXISTS {table}(id text, data text, PRIMARY KEY (id));");
             
             return new CassandraKeyValueStore<TKey, TData>(session, config);
         }
