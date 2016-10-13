@@ -10,11 +10,11 @@ using IdentityServer4.Stores;
 
 namespace IdentityServer4.Cassandra
 {
-    internal class CassandraScopeStore : IScopeStore
+    public class CassandraScopeStore : IScopeStore
     {
         public static CassandraScopeStore Initialize(ISession session)
         {
-            var kvStore = CassandraKeyValueStore<string,Scope>.Initialize(session, "identityserver_grants");
+            var kvStore = CassandraKeyValueStore<string,Scope>.Initialize(session, "identityserver_scopes");
             return new CassandraScopeStore(kvStore);
         }
         private readonly IKeyValueStore<string,Scope> _store;
