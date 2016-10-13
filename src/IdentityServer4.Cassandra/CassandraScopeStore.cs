@@ -36,14 +36,15 @@ namespace IdentityServer4.Cassandra
             {
                 getTasks.Add(_store.GetAsync(scopeName));
             }
-
-            return await Task.WhenAll(getTasks.ToArray());
+            
+            var customScopes = await Task.WhenAll(getTasks.ToArray());
+            return customScopes.Union(StandardScopes.All.Where(s => scopeNames.Contains(s.Name)));
         }
 
         public async Task<IEnumerable<Scope>> GetScopesAsync(bool publicOnly = true)
         {
             var all = await _store.ListAsync();
-            return publicOnly ? all.Where(s => s.ShowInDiscoveryDocument) : all;
+            return publicOnly ? StandardScopes.All.Union(all).Where(s => s.ShowInDiscoveryDocument) : all;
         }
 
         public Task AddScopeAsync(Scope scope)
