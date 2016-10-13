@@ -10,7 +10,7 @@ using IdentityServer4.Stores;
 
 namespace IdentityServer4.Cassandra
 {
-    internal class CassandraScopeStore : IScopeStore
+    public class CassandraScopeStore : IScopeStore
     {
         public static CassandraScopeStore Initialize(ISession session)
         {

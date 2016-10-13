@@ -69,6 +69,7 @@ namespace Microsoft.Extensions.DependencyInjection
                     .GetAwaiter()
                     .GetResult();
             });
+
             return builder;
         }
 
