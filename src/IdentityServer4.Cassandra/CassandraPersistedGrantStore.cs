@@ -9,7 +9,7 @@ using IdentityServer4.Stores;
 
 namespace IdentityServer4.Cassandra
 {
-    internal class CassandraPersistedGrantStore : IPersistedGrantStore
+    public class CassandraPersistedGrantStore : IPersistedGrantStore
     {
         public static CassandraPersistedGrantStore Initialize(ISession session)
         {
