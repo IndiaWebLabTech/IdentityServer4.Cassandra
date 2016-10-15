@@ -38,7 +38,7 @@ namespace IdentityServer4.Cassandra
             }
             
             var customScopes = await Task.WhenAll(getTasks.ToArray());
-            return customScopes.Union(StandardScopes.All.Where(s => scopeNames.Contains(s.Name)));
+            return customScopes.Union(StandardScopes.All.Where(s => scopeNames.Contains(s.Name))).Where(s => s != null);
         }
 
         public async Task<IEnumerable<Scope>> GetScopesAsync(bool publicOnly = true)
