@@ -7,7 +7,6 @@ namespace IdentityServer4.Cassandra
 {
     public class CassandraClientStore : IClientStore
     {
-
         public static CassandraClientStore Initialize(ISession session)
         {
             var kvStore = CassandraKeyValueStore<string,Client>.Initialize(session, "identityserver_clients");

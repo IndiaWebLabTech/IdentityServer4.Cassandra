@@ -67,8 +67,8 @@
       <file leaf-file-name="IdentityServerCassandraServiceCollectionExtensions.cs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../../IdentityServer4.Cassandra/IdentityServerCassandraServiceCollectionExtensions.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+            <state relative-caret-position="289">
+              <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
               <folding>
                 <marker date="1476195002006" expanded="true" signature="8:111" ph="..." />
                 <marker date="1476195002006" expanded="true" signature="204:3262" ph="{...}" />
@@ -97,13 +97,13 @@
       <file leaf-file-name="CassandraScopeStore.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../IdentityServer4.Cassandra/CassandraScopeStore.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+            <state relative-caret-position="38">
+              <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
               <folding>
-                <marker date="1476352810015" expanded="true" signature="6:226" ph="..." />
-                <marker date="1476352810015" expanded="true" signature="263:1620" ph="{...}" />
-                <marker date="1476352810015" expanded="true" signature="1602:1612" ph="{...}" />
-                <marker date="1476352810015" expanded="true" signature="1602:1618" ph="{...}" />
+                <marker date="1476432911793" expanded="true" signature="6:226" ph="..." />
+                <marker date="1476432911793" expanded="true" signature="263:1769" ph="{...}" />
+                <marker date="1476432911793" expanded="true" signature="1751:1761" ph="{...}" />
+                <marker date="1476432911793" expanded="true" signature="1751:1767" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -230,11 +230,7 @@
               <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="IdentityServer4.Cassandra.Tests" />
-              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="IntegrationTests" />
+              <option name="myItemId" value="IdentityServer4.Cassandra" />
               <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
             </PATH_ELEMENT>
           </PATH>
@@ -249,6 +245,14 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="IdentityServer4.Cassandra" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Properties" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AssemblyInfo.cs" />
               <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
             </PATH_ELEMENT>
           </PATH>
@@ -324,7 +328,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33077000" />
+    <option name="totallyTimeSpent" value="36928000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -715,13 +719,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../../IdentityServer4.Cassandra/CassandraScopeStore.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+        <state relative-caret-position="38">
+          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding>
-            <marker date="1476352810015" expanded="true" signature="6:226" ph="..." />
-            <marker date="1476352810015" expanded="true" signature="263:1620" ph="{...}" />
-            <marker date="1476352810015" expanded="true" signature="1602:1612" ph="{...}" />
-            <marker date="1476352810015" expanded="true" signature="1602:1618" ph="{...}" />
+            <marker date="1476432911793" expanded="true" signature="6:226" ph="..." />
+            <marker date="1476432911793" expanded="true" signature="263:1769" ph="{...}" />
+            <marker date="1476432911793" expanded="true" signature="1751:1761" ph="{...}" />
+            <marker date="1476432911793" expanded="true" signature="1751:1767" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -736,8 +740,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../../IdentityServer4.Cassandra/IdentityServerCassandraServiceCollectionExtensions.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+        <state relative-caret-position="289">
+          <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
           <folding>
             <marker date="1476195002006" expanded="true" signature="8:111" ph="..." />
             <marker date="1476195002006" expanded="true" signature="204:3262" ph="{...}" />
