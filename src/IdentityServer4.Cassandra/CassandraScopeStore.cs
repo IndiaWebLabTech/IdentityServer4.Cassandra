@@ -43,7 +43,7 @@ namespace IdentityServer4.Cassandra
         public async Task<IEnumerable<Scope>> GetScopesAsync(bool publicOnly = true)
         {
             var all = await _store.ListAsync();
-            return publicOnly ? StandardScopes.All.Union(all).Where(s => s.ShowInDiscoveryDocument) : all;
+            return publicOnly ? all.Where(s => s.ShowInDiscoveryDocument) : all;
         }
 
         public Task AddScopeAsync(Scope scope)
