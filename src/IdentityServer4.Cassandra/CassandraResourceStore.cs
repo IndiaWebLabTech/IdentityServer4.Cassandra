@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Cassandra;
 using IdentityServer4.Models;
@@ -46,7 +47,8 @@ namespace IdentityServer4.Cassandra
                 getTasks.Add(_identityStore.GetAsync(scopeName));
             }
             
-            return await Task.WhenAll(getTasks.ToArray());
+            var fetched = await Task.WhenAll(getTasks.ToArray());
+            return fetched.Where(f => f != null);
         }
 
         public async Task<IEnumerable<ApiResource>> FindApiResourcesByScopeAsync(IEnumerable<string> scopeNames)
@@ -57,7 +59,8 @@ namespace IdentityServer4.Cassandra
                 getTasks.Add(_apiStore.GetAsync(scopeName));
             }
             
-            return await Task.WhenAll(getTasks.ToArray());
+            var fetched = await Task.WhenAll(getTasks.ToArray());
+            return fetched.Where(f => f != null);
         }
 
         public Task<ApiResource> FindApiResourceAsync(string name)
