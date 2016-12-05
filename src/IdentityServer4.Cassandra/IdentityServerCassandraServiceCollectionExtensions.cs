@@ -1,5 +1,6 @@
 ﻿
 
+using System.Collections.Generic;
 using Cassandra;
 using IdentityServer4.Cassandra;
 using IdentityServer4.Models;
@@ -10,15 +11,16 @@ namespace Microsoft.Extensions.DependencyInjection
 {
     public static class IdentityServerCassandraServiceCollectionExtensions
     {
-        public static IIdentityServerBuilder AddCassandraScopes(this IIdentityServerBuilder builder, ISession session,
-            params Scope[] scopes)
+        public static IIdentityServerBuilder AddCassandraResources(this IIdentityServerBuilder builder, ISession session, 
+            IEnumerable<ApiResource> apiResources = null,
+            IEnumerable<IdentityResource> identityResources = null)
         {
-            var store = CassandraIdentityServerStores.InitializeScopeStoreAsync(session, scopes)
+            var store = CassandraIdentityServerStores.InitializeScopeStoreAsync(session, apiResources, identityResources)
                 .ConfigureAwait(false)
                 .GetAwaiter()
                 .GetResult();
 
-            builder.Services.AddSingleton<IScopeStore>(store);
+            builder.Services.AddSingleton<IResourceStore>(store);
             return builder;
         }
 
@@ -45,12 +47,14 @@ namespace Microsoft.Extensions.DependencyInjection
             return builder;
         }
 
-        public static IIdentityServerBuilder AddCassandraScopes(this IIdentityServerBuilder builder, params Scope[] scopes)
+        public static IIdentityServerBuilder AddCassandraScopes(this IIdentityServerBuilder builder,
+            IEnumerable<ApiResource> apiResources = null,
+            IEnumerable<IdentityResource> identityResources = null)
         {
-            builder.Services.AddSingleton<IScopeStore>(c =>
+            builder.Services.AddSingleton<IResourceStore>(c =>
             {
                 var session = c.GetRequiredService<ISession>();
-                return  CassandraIdentityServerStores.InitializeScopeStoreAsync(session, scopes)
+                return  CassandraIdentityServerStores.InitializeScopeStoreAsync(session, apiResources, identityResources)
                     .ConfigureAwait(false)
                     .GetAwaiter()
                     .GetResult();

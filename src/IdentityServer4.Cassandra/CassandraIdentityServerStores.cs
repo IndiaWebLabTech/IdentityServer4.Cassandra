@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Cassandra;
 using IdentityServer4.Models;
@@ -9,15 +10,24 @@ namespace IdentityServer4.Cassandra
     public static class CassandraIdentityServerStores
     {
         
-        public static async Task<IScopeStore> InitializeScopeStoreAsync(ISession session, params Scope[] scopes)
+        public static async Task<IResourceStore> InitializeScopeStoreAsync(ISession session,  
+            IEnumerable<ApiResource> apiResources = null,
+            IEnumerable<IdentityResource> identityResource = null)
         {
-            var store = CassandraScopeStore.Initialize(session);
+            var store = CassandraResourceStore.Initialize(session);
             var saveTasks = new List<Task>();
-            foreach(var scope in scopes)
+
+            foreach(var scope in apiResources ?? Enumerable.Empty<ApiResource>())
             {
-                saveTasks.Add(store.AddScopeAsync(scope));
+                saveTasks.Add(store.AddApiResourceAsync(scope));
             }
-            await Task.WhenAll(saveTasks);
+
+            foreach(var scope in identityResource ?? Enumerable.Empty<IdentityResource>())
+            {
+                saveTasks.Add(store.AddIdentityResourceAsync(scope));
+            }
+
+            await Task.WhenAll(saveTasks).ConfigureAwait(false);
             return store;
         }
 
@@ -29,7 +39,7 @@ namespace IdentityServer4.Cassandra
             {
                 saveTasks.Add(store.AddClient(scope));
             }
-            await Task.WhenAll(saveTasks);
+            await Task.WhenAll(saveTasks).ConfigureAwait(false);
             return store;
         }
 
