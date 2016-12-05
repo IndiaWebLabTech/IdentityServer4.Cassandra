@@ -1,6 +1,0 @@
-{
-   "projects":[
-      "IdentityServer4.Cassandra",
-      "IdentityServer4.Cassandra.Tests"
-   ]
-}

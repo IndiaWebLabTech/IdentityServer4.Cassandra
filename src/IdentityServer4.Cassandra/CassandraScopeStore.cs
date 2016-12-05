@@ -1,96 +1,75 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Cassandra;
-using Cassandra.Mapping;
 using IdentityServer4.Models;
 using IdentityServer4.Stores;
 
 namespace IdentityServer4.Cassandra
 {
-    internal class CassandraScopeStore : IScopeStore
+    public class CassandraResourceStore : IResourceStore
     {
-        private const string TABLE_NAME = "IdentityServer4_Scopes";
-        private const string SCHEMA_INITIALIZATION = @"
-CREATE TABLE IF NOT EXISTS {0}(name text PRIMARY KEY, data text);";
-
-        static CassandraScopeStore()
+        public static CassandraResourceStore Initialize(ISession session)
         {
-            MappingConfiguration.Global.Define(new Map<ScopeDto>()
-                .TableName(TABLE_NAME)
-                .PartitionKey(s => s.Name));
+            var apiStore = CassandraKeyValueStore<string,ApiResource>.Initialize(session, "identityserver_apiresources");
+            var identityStore = CassandraKeyValueStore<string,IdentityResource>.Initialize(session, "identityserver_identityresources");
+            return new CassandraResourceStore(identityStore, apiStore);
+        }
+        private readonly IKeyValueStore<string,IdentityResource> _identityStore;
+        private readonly IKeyValueStore<string,ApiResource> _apiStore;
+
+        private CassandraResourceStore(CassandraKeyValueStore<string, IdentityResource> identityStore, CassandraKeyValueStore<string, ApiResource> apiStore)
+            : this((IKeyValueStore<string, IdentityResource>)identityStore, (IKeyValueStore<string, ApiResource>)apiStore)
+        {
         }
 
-        private readonly ISession _session;
-
-        public CassandraScopeStore(ISession session)
+        internal CassandraResourceStore(IKeyValueStore<string, IdentityResource> identityStore, IKeyValueStore<string, ApiResource> apiStore)
         {
-            _session = session;
+            _identityStore =identityStore;
+            _apiStore = apiStore;
         }
 
-        public async Task<IEnumerable<Scope>> FindScopesAsync(IEnumerable<string> scopeNames)
+        public Task AddIdentityResourceAsync(IdentityResource resource)
         {
-            var mapper = new Mapper(_session);
-            var getTasks = new List<Task<ScopeDto>>();
+            return _identityStore.SaveAsync(resource.Name, resource);
+        }
+
+        public Task AddApiResourceAsync(ApiResource resource)
+        {
+            return _apiStore.SaveAsync(resource.Name, resource);
+        }
+
+        public async Task<IEnumerable<IdentityResource>> FindIdentityResourcesByScopeAsync(IEnumerable<string> scopeNames)
+        {
+            var getTasks = new List<Task<IdentityResource>>();
             foreach (var scopeName in scopeNames)
             {
-                getTasks.Add(mapper.FirstOrDefaultAsync<ScopeDto>("where name = ?", scopeName));
+                getTasks.Add(_identityStore.GetAsync(scopeName));
             }
-
-            var completed =  await Task.WhenAll(getTasks.ToArray());
-            return completed.Select(c => c.ToScope());
+            
+            return await Task.WhenAll(getTasks.ToArray());
         }
 
-        public async Task<IEnumerable<Scope>> GetScopesAsync(bool publicOnly = true)
+        public async Task<IEnumerable<ApiResource>> FindApiResourcesByScopeAsync(IEnumerable<string> scopeNames)
         {
-            var mapper = new Mapper(_session);
-            var all = await mapper.FetchAsync<ScopeDto>();
-            var scopes = all.Select(c => c.ToScope());
-            return publicOnly ? scopes.Where(s => s.ShowInDiscoveryDocument) : scopes;
+            var getTasks = new List<Task<ApiResource>>();
+            foreach (var scopeName in scopeNames)
+            {
+                getTasks.Add(_apiStore.GetAsync(scopeName));
+            }
+            
+            return await Task.WhenAll(getTasks.ToArray());
         }
 
-        internal async Task InitializeAsync(params Scope[] scopes)
-        {
-            var createSchemaCql = String.Format(SCHEMA_INITIALIZATION, TABLE_NAME);
-            await _session.ExecuteAsync(_session.Prepare(createSchemaCql).Bind());
-            var mapper = new Mapper(_session);
-            var insertTasks = new List<Task>();
-
-            foreach (var scope in scopes)
-            {
-                insertTasks.Add(mapper.InsertAsync(ScopeDto.FromScope(scope)));
-            }
-
-            await Task.WhenAll(insertTasks.ToArray());
+        public Task<ApiResource> FindApiResourceAsync(string name)
+        {           
+            return _apiStore.GetAsync(name);
         }
 
-        class ScopeDto
+        public async Task<Resources> GetAllResources()
         {
-            public ScopeDto()
-            {
-            }
-
-            public ScopeDto(string name, string data)
-            {
-                Name = name;
-                Data = data;
-            }
-
-            public static ScopeDto FromScope(Scope scope)
-            {
-                var jsonData = Newtonsoft.Json.JsonConvert.SerializeObject(scope);
-                return new ScopeDto(scope.Name, jsonData);
-            }
-
-            public Scope ToScope()
-            {
-                return Newtonsoft.Json.JsonConvert.DeserializeObject<Scope>(this.Data);
-            }
-
-            public string Name { get; set; }
-            public string Data { get; set; }
+            var identityResourcesTask = _identityStore.ListAsync();
+            var apiResourcesTask = _apiStore.ListAsync();
+            return new Resources(await identityResourcesTask, await apiResourcesTask);
         }
     }
 }

@@ -1,11 +1,8 @@
-﻿src/IdentityServer4.Cassandra.Tests/TestResult.xml
-src/IdentityServer4.Cassandra.Tests/project.lock.json
+﻿bin/
+obj/
 
-src/IdentityServer4.Cassandra.Tests/bin/
-src/IdentityServer4.Cassandra.Tests/obj/
+project.lock.json
 
-src/IdentityServer4.Cassandra/bin/
-src/IdentityServer4.Cassandra/obj/
+.idea/
 
-src/IdentityServer4.Cassandra.Tests/bin
-src/IdentityServer4.Cassandra.Tests/obj
+src/.idea/.idea.IdentityServer4.Cassandra/.idea/workspace.xml

@@ -1,38 +1,51 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Cassandra;
 using IdentityServer4.Models;
 using IdentityServer4.Stores;
 
 namespace IdentityServer4.Cassandra
 {
-    public class CassandraIdentityServerStores
+    public static class CassandraIdentityServerStores
     {
-        private readonly ISession _session;
-
-        public CassandraIdentityServerStores(ISession session)
+        
+        public static async Task<IResourceStore> InitializeScopeStoreAsync(ISession session,  
+            IEnumerable<ApiResource> apiResources = null,
+            IEnumerable<IdentityResource> identityResource = null)
         {
-            _session = session;
+            var store = CassandraResourceStore.Initialize(session);
+            var saveTasks = new List<Task>();
+
+            foreach(var scope in apiResources ?? Enumerable.Empty<ApiResource>())
+            {
+                saveTasks.Add(store.AddApiResourceAsync(scope));
+            }
+
+            foreach(var scope in identityResource ?? Enumerable.Empty<IdentityResource>())
+            {
+                saveTasks.Add(store.AddIdentityResourceAsync(scope));
+            }
+
+            await Task.WhenAll(saveTasks).ConfigureAwait(false);
+            return store;
         }
 
-        public async Task<IScopeStore> InitializeScopeStoreAsync(params Scope[] scopes)
+        public static async Task<IClientStore> InitializeClientStore(ISession session, params Client[] clients)
         {
-            var retval = new CassandraScopeStore(_session);
-            await retval.InitializeAsync(scopes);
-            return retval;
+            var store = CassandraClientStore.Initialize(session);
+            var saveTasks = new List<Task>();
+            foreach(var scope in clients)
+            {
+                saveTasks.Add(store.AddClient(scope));
+            }
+            await Task.WhenAll(saveTasks).ConfigureAwait(false);
+            return store;
         }
 
-        public async Task<IClientStore> InitializeClientStore(params Client[] clients)
+        public static Task<IPersistedGrantStore> InitializeGrantsStoreAsync(ISession session)
         {
-            var retval = new CassandraClientStore(_session);
-            await retval.InitializeAsync(clients);
-            return retval;
-        }
-
-        public async Task<IPersistedGrantStore> InitializeGrantsStoreAsync()
-        {
-            var retval = new CassandraPersistedGrantStore(_session);
-            await retval.InitializeAsync();
-            return retval;
+            return Task.FromResult((IPersistedGrantStore)CassandraPersistedGrantStore.Initialize(session));
         }
     }
 }

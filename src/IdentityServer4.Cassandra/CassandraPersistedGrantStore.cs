@@ -9,65 +9,51 @@ using IdentityServer4.Stores;
 
 namespace IdentityServer4.Cassandra
 {
-    internal class CassandraPersistedGrantStore : IPersistedGrantStore
+    public class CassandraPersistedGrantStore : IPersistedGrantStore
     {
-        private const string TABLE_NAME = "IdentityServer4_Grants";
-        private const string SCHEMA_INITIALIZATION = @"
-CREATE TABLE IF NOT EXISTS {0}(key text,subjectid text,clientid text,type text, data text, PRIMARY KEY (key));";
-
-        static CassandraPersistedGrantStore()
+        public static CassandraPersistedGrantStore Initialize(ISession session)
         {
-            MappingConfiguration.Global.Define(new Map<PersistedGrantDto>()
-                .TableName(TABLE_NAME)
-                .PartitionKey(s => s.Key));
+            var kvStore = CassandraKeyValueStore<string,PersistedGrant>.Initialize(session, "identityserver_grants");
+            return new CassandraPersistedGrantStore(kvStore);
+        }
+        private readonly IKeyValueStore<string,PersistedGrant> _store;
+
+        private CassandraPersistedGrantStore(CassandraKeyValueStore<string, PersistedGrant> store)
+        {
+            _store = store;
         }
 
-        private readonly ISession _session;
-
-        public CassandraPersistedGrantStore(ISession session)
+        internal CassandraPersistedGrantStore(IKeyValueStore<string, PersistedGrant> store)
         {
-            _session = session;
+            _store = store;
         }
 
-        internal async Task InitializeAsync()
+        public Task StoreAsync(PersistedGrant grant)
         {
-
-            var createSchemaCql = String.Format(SCHEMA_INITIALIZATION, TABLE_NAME);
-            await _session.ExecuteAsync(_session.Prepare(createSchemaCql).Bind());
+            return _store.SaveAsync(grant.Key, grant);
         }
 
-        public async Task StoreAsync(PersistedGrant grant)
+        public Task<PersistedGrant> GetAsync(string key)
         {
-            var mapper = new Mapper(_session);
-            await mapper.InsertAsync(PersistedGrantDto.FromPersistedGrant(grant));
-        }
-
-        public async Task<PersistedGrant> GetAsync(string key)
-        {
-            var mapper = new Mapper(_session);
-            var dto = await mapper.FirstOrDefaultAsync<PersistedGrantDto>("where key = ?", key);
-            return dto.ToPersistedGrantDto();
+            return _store.GetAsync(key);
         }
 
         public async Task<IEnumerable<PersistedGrant>> GetAllAsync(string subjectId)
         {
-            var mapper = new Mapper(_session);
-            var dtos = await mapper.FetchAsync<PersistedGrantDto>();
-            return dtos.Where(s => s.SubjectId == subjectId).Select(d => d.ToPersistedGrantDto());
+            var dtos = await _store.ListAsync();
+            return dtos.Where(s => s.SubjectId == subjectId);
         }
 
-        public async Task RemoveAsync(string key)
+        public Task RemoveAsync(string key)
         {
-            var mapper = new Mapper(_session);
-            await mapper.DeleteAsync<PersistedGrantDto>("where key = ?", key);
+            return _store.RemoveAsync(key);
         }
 
         public async Task RemoveAllAsync(string subjectId, string clientId)
         {
-            var mapper = new Mapper(_session);
-            var dtos = await mapper.FetchAsync<PersistedGrantDto>();
+            var dtos = await GetAllAsync(subjectId);
             var removalTasks = new List<Task>();
-            foreach (var dto in dtos.Where(d => d.SubjectId == subjectId && d.ClientId == clientId))
+            foreach (var dto in dtos.Where(d => d.SubjectId == subjectId && d.ClientId == clientId).ToArray())
             {
                 removalTasks.Add(RemoveAsync(dto.Key));
             }
@@ -76,48 +62,13 @@ CREATE TABLE IF NOT EXISTS {0}(key text,subjectid text,clientid text,type text, 
 
         public async Task RemoveAllAsync(string subjectId, string clientId, string type)
         {
-            var mapper = new Mapper(_session);
-            var dtos = await mapper.FetchAsync<PersistedGrantDto>();
+            var dtos = await GetAllAsync(subjectId);
             var removalTasks = new List<Task>();
-            foreach (var dto in dtos.Where(d => d.SubjectId == subjectId && d.ClientId == clientId && d.Type == type))
+            foreach (var dto in dtos.Where(d => d.SubjectId == subjectId && d.ClientId == clientId && d.Type == type).ToArray())
             {
                 removalTasks.Add(RemoveAsync(dto.Key));
             }
             await Task.WhenAll(removalTasks);
-        }
-
-        class PersistedGrantDto
-        {
-
-            public PersistedGrantDto()
-            {
-            }
-
-            public PersistedGrantDto(string key, string subjectId, string clientId, string type, string data)
-            {
-                Key = key;
-                SubjectId = subjectId;
-                ClientId = clientId;
-                Type = type;
-                Data = data;
-            }
-
-            public static PersistedGrantDto FromPersistedGrant(PersistedGrant grant)
-            {
-                var jsonData = Newtonsoft.Json.JsonConvert.SerializeObject(grant);
-                return new PersistedGrantDto(grant.Key, grant.SubjectId, grant.ClientId, grant.Type, jsonData);
-            }
-
-            public PersistedGrant ToPersistedGrantDto()
-            {
-                return Newtonsoft.Json.JsonConvert.DeserializeObject<PersistedGrant>(this.Data);
-            }
-
-            public string Key { get; set; }
-            public string SubjectId { get; set; }
-            public string ClientId { get; set; }
-            public string Type { get; set; }
-            public string Data { get; set; }
         }
     }
 }

@@ -1,0 +1,7 @@
+{
+   "projects":[
+      "src/IdentityServer4.Cassandra",
+      "src/IdentityServer4.Cassandra.Tests",
+      "src/IdentityServer4.Cassandra.IntegrationTests"
+   ]
+}
