@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Cassandra;
@@ -21,6 +22,28 @@ namespace IdentityServer4.Cassandra.IntegrationTests
 
             Assert.NotNull(actual);
             Assert.Equal(expected.Name,actual.Name);
+        }
+
+        [Fact]
+        public async Task TestDiscoEndpointBug()
+        {
+            var sut = CassandraResourceStore.Initialize(_session);
+            await sut.AddApiResourceAsync(new ApiResource("something"){UserClaims = null});
+            var resources = await sut.GetAllResources();
+       
+            var scopes = new List<string>();
+            scopes.AddRange(resources.IdentityResources.Where(x=>x.ShowInDiscoveryDocument).Select(x=>x.Name));
+            var apiScopes = from api in resources.ApiResources
+                                from scope in api.Scopes
+                                where scope.ShowInDiscoveryDocument
+                                select scope.Name;
+            scopes.AddRange(apiScopes);
+
+            var claims = new List<string>();
+
+            claims.AddRange(resources.IdentityResources.SelectMany(x => x.UserClaims));
+            claims.AddRange(resources.ApiResources.SelectMany(x => x.UserClaims));
+
         }
 
 
